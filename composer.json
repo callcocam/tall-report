@@ -1,0 +1,30 @@
+{
+    "name": "callcocam/tall-report",
+    "type": "package",
+    "description": "The packages report table.",
+    "keywords": ["framework", "laravel", "livewire", "alpinejs", "tailwindcss"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "livewire/livewire": "^2.5",
+        "doctrine/dbal": "^3.3",
+        "wireui/wireui": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tall\\Schema\\": "tall-schema/src",
+            "Tall\\Report\\": "tall-report/src"
+        }
+    },
+    
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tall\\Schema\\SchemaServiceProvider",
+                "Tall\\Report\\ReportServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
