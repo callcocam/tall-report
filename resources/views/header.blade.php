@@ -2,17 +2,24 @@
     <div class="flex flex-col text-gray-800 text-center sm:text-left w-full">
         <section class="flex w-full items-center">
             <h1 class="text-3xl font-bold mb-2">
-                {{ __("TALL-Relatórios")}}
+                {{ __('TALL-Relatórios') }}
             </h1>
             <!-- BEGIN: breadcrums v1 -->
             <div class="container flex items-center justify-start">
                 <div class="pl-3 text-sm breadcrumbs text-primary flex-1">
                     <ul class="flex w-full space-x-3">
                         <li class="flex">
-                            <a href="{{ route('home') }}">
-                                <i class="swfa fas fa-home ml-2" aria-hidden="true"></i>
-                                <span class="ml-3">{{ __('Dashboard') }}</span>
-                            </a>
+                            @if (\Route::has('home'))
+                                <a href="{{ route('home') }}">
+                                    <i class="swfa fas fa-home ml-2" aria-hidden="true"></i>
+                                    <span class="ml-3">{{ __('Dashboard') }}</span>
+                                </a>
+                            @else
+                                <a href="{{ url('/') }}">
+                                    <i class="swfa fas fa-home ml-2" aria-hidden="true"></i>
+                                    <span class="ml-3">{{ __('Dashboard') }}</span>
+                                </a>
+                            @endif
                         </li>
                         <li class="flex justify-items-start items-center text-sky-900">
                             <a class="flex items-center" href="{{ route('tall.report.admin.reports') }}">
