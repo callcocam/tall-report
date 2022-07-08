@@ -81,7 +81,24 @@ import './bootstrap';
 
 import 'livewire-sortable';//add import slivewire-sortable resourses/js/app.js
 
-...
+...    
+
+```
+#ALTERANDO O MIX PARA INCLUIR o MIX DO PACOTE
 
 
+```
+
+mix
+.js('resources/js/app.js', 'public/js')
+.js('vendor/callcocam/tall-report/resources/js/report.js', 'public/js')
+.postCss('resources/css/app.css', 'public/css', [
+    require('postcss-import'),
+    require('tailwindcss'),
+])
+.postCss('vendor/callcocam/tall-report/resources/css/report.css', 'public/css', [
+    require('postcss-import'),
+    require('tailwindcss'),
+])
+    
 ```
