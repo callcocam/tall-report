@@ -8,11 +8,12 @@
         "php": "^7.3|^8.0",
         "livewire/livewire": "^2.5",
         "doctrine/dbal": "^3.3",
-        "wireui/wireui": "^1.7"
+        "wireui/wireui": "^1.7",
+        "callcocam/tall-schema": "dev-main",
+        "callcocam/tall-sluggable": "dev-main"
     },
     "autoload": {
         "psr-4": {
-            "Tall\\Schema\\": "tall-schema/src",
             "Tall\\Report\\": "tall-report/src"
         }
     },
@@ -20,7 +21,6 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tall\\Schema\\SchemaServiceProvider",
                 "Tall\\Report\\ReportServiceProvider"
             ]
         }
