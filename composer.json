@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tall\\Report\\": "tall-report/src"
+            "Tall\\Report\\": "src"
         }
     },
     
