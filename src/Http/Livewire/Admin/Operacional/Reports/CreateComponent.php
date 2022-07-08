@@ -19,6 +19,13 @@ class CreateComponent extends FormComponent
 {
     use LivewireInfo, AuthorizesRequests, Exportable;
 
+    
+    protected function rules(){
+       return [
+            'name'=>'required',
+            'model'=>'required',
+       ];
+    }
      /*
     |--------------------------------------------------------------------------
     |  Features mount
@@ -32,7 +39,15 @@ class CreateComponent extends FormComponent
             $this->authorize(Route::currentRouteName());
         }        
         
-        $this->setFormProperties($model); // $relatorio from hereon, called $this->model
+        $this->setFormProperties($model); // $relatorio from hereon, called $this->model        
+        data_set($this->data, 'name', '');
+        data_set($this->data, 'model', '');
+        data_set($this->data, 'freeze_column', '');
+        data_set($this->data, 'freeze_row', '');
+        data_set($this->data, 'zoom_scale', '');
+        data_set($this->data, 'views', '');
+        data_set($this->data, 'content', '');
+        data_set($this->data, 'foreigns_table', []);
     }
    
     protected function view()

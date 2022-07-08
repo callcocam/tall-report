@@ -23,8 +23,8 @@ abstract class FormComponent extends Component
     }
 
     protected function submit(){
-            if ($this->rules())
-            $this->validate($this->rules());
+            if ($rules = $this->rules())
+            $this->validate($this->format_rules($rules));
             return $this->success();
     }
 
@@ -90,6 +90,14 @@ abstract class FormComponent extends Component
     }
 
    
+    protected function format_rules($rules){
+       $validations = [];
+        foreach ($rules as $key => $value) {
+            $validations[sprintf("data.%s", $key)] = $value;
+        }
+        return $validations;
+    }
+
     protected function layout(){
         if(config("report.layout")){
             return config("report.layout");

@@ -75,4 +75,13 @@ https://github.com/livewire/sortable
 
 ./vendor/bin/sail npm i livewire-sortable --save-dev
 
+ALTER app.js
+...
+import './bootstrap';
+
+import 'livewire-sortable';//add import slivewire-sortable resourses/js/app.js
+
+...
+
+
 ```
