@@ -20,6 +20,14 @@ class EditComponent extends FormComponent
 {
     use LivewireInfo, AuthorizesRequests, Exportable;
     
+    
+    protected function rules(){
+        return [
+             'name'=>'required',
+             'model'=>'required',
+        ];
+     }
+     
      /*
     |--------------------------------------------------------------------------
     |  Features mount
