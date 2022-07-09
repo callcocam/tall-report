@@ -54,19 +54,6 @@ class GenerateComponent extends FormComponent
         }
     }
 
-
-     /*
-    |--------------------------------------------------------------------------
-    |  Features route
-    |--------------------------------------------------------------------------
-    | Rota principal do crud, lista todos os dados
-    |
-    */
-
-    public function route(){
-        Route::get('/relatorio/{model}/gerenciar', static::class)->name('tall.report.admin.report.generate');
-    }
-
     public function removeColumn($name, $column=null)
     {       
         if($coluna = $this->model->columns()->where('name', $name)->first()){
@@ -81,7 +68,7 @@ class GenerateComponent extends FormComponent
             else{
                 $this->deleteColumn($name,$this->model->columns());   
             }  
-            return redirect()->route('tall.report.admin.report.generate', $this->model);              
+            return redirect()->route(config('report.routes.reports.generate'), $this->model);              
         }
     }
       /*

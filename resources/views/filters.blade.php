@@ -22,7 +22,7 @@
                     x-transition:leave="transition ease-in duration-75"
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-95"
-                    class="origin-top-left left-0 w-48 z-30 absolute mt-2 whitespace-nowrap z-40"
+                    class="origin-top-left left-0 w-48 absolute mt-2 whitespace-nowrap z-40"
                     wire:model="filters.name.key" style="display: none;"
                     x-on:click="close">
                     <div

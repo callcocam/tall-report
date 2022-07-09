@@ -15,7 +15,7 @@
                         </div>
                         <div class="flex justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 z-10 space-x-2">
                             <x-button wire:loading.attr="disabled" squared negative
-                                href="{{ route('tall.report.admin.reports') }}"
+                                href="{{ route(config('report.routes.reports.list')) }}"
                                 label="{{ __('Voltar para alista') }}" icon="x" />
                             <x-button type="submit" wire:loading.attr="disabled" squared primary
                                 label="{{ __('Sarvar as alterações') }}" icon="check" />

@@ -35,7 +35,7 @@
                                                     placeholder="{{ __('Search...') }}" />
                                             </div>
                                             <x-button icon="plus" positive  squared
-                                                href="{{ route('tall.report.admin.report.create') }}"
+                                                href="{{ route(config('report.routes.reports.create')) }}"
                                                 label="{{ __('Adicionar') }}" teal flat/>
                                         </th>
                                     </tr>
@@ -64,10 +64,10 @@
                                             <td>
                                                 <div class="flex px-2 space-x-2 align-middle">
                                                     <x-button icon="cog" positive sm squared
-                                                        href="{{ route('tall.report.admin.report.generate', $model) }}"
+                                                        href="{{ route(config('report.routes.reports.generate'), $model) }}"
                                                         label="{{ __('Gerenciar') }}" teal />
                                                     <x-button icon="pencil" sm primary squared
-                                                        href="{{ route('tall.report.admin.report.edit', $model) }}"
+                                                        href="{{ route(config('report.routes.reports.edit'), $model) }}"
                                                         label="{{ __('Editar') }}" teal />
                                                     <x-button
                                                     x-on:confirm="{

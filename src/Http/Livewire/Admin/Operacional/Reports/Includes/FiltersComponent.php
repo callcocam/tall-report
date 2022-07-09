@@ -153,7 +153,7 @@ class FiltersComponent extends FormComponent
     */
     public function closeModal(){
         if($this->updated)
-            return redirect()->route('tall.report.admin.report.generate', $this->model);         
+            return redirect()->route(config('report.routes.reports.generate'), $this->model);         
      }
 
     public function view()

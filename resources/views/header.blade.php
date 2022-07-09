@@ -1,7 +1,7 @@
 <div class="mx-auto rounded-md flex items-center">
     <div class="flex flex-col text-gray-800 text-center sm:text-left w-full">
         <section class="flex w-full items-center">
-            <h1 class="text-3xl font-bold mb-2">
+            <h1 class="text-3xl font-bold mb-2  whitespace-nowrap">
                 {{ __('TALL-Relatórios') }}
             </h1>
             <!-- BEGIN: breadcrums v1 -->
@@ -22,7 +22,7 @@
                             @endif
                         </li>
                         <li class="flex justify-items-start items-center text-sky-900">
-                            <a class="flex items-center" href="{{ route('tall.report.admin.reports') }}">
+                            <a class="flex items-center" href="{{ route(config('report.routes.reports.list')) }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>

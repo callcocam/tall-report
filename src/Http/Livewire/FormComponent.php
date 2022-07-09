@@ -82,7 +82,7 @@ abstract class FormComponent extends Component
      */
     protected function saveAndGoBackResponse()
     {
-        return redirect()->route('tall.report.admin.report.edit', $this->model);
+        return redirect()->route(config('report.routes.reports.edit'), $this->model);
     }
 
     protected function rules(){
