@@ -22,5 +22,6 @@ return [
             'edit'=>'tall.report.admin.report.edit',
             'generate'=>'tall.report.admin.report.generate',
         ]
-    ]
+        ],
+        "info"=>[]
 ];

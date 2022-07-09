@@ -118,7 +118,13 @@ class FilterComponent extends FormComponent
         $values = [];
         if($options = $this->options){
             if($table = data_get($options, 'table')){
-                $values = DB::table($table)->whereNull('deleted_at')->pluck('name', 'id');
+                $info = config(sprintf('report.info.tables.%s', $table),[]);
+                if(data_get($info, 'deleted_at', true)){
+                    $values = DB::table($table)->whereNull('deleted_at')->pluck(data_get($info, 'name', 'name'), data_get($info, 'id', 'id'));
+                }
+                else{
+                    $values = DB::table($table)->pluck('name', 'id');
+                }
             }
         }
         return $values;
