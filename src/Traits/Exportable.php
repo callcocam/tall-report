@@ -201,110 +201,43 @@ trait Exportable
         }
        
     }
-
-    public function tablesNames(){
-        $tables = \Tall\Schema\Schema::make()->getTableNames()->toArray();
-        $options = [];
-        foreach($tables as $table){
-            if(!in_array($table, $this->getIgnoreTables())){
-                $options[$table] = $table;
-            }
-        }
-        return $options;
-    }
     
+    public function tablesNames(){       
+        if(config('report.local')){
+            return \Tall\Schema\Schema::tablesNames(config('schema.ignore.tables', []));
+        }
+
+        return \Tall\Report\Services\Http\Schema::make()->get(['type'=>'tablesNames']);
+    }
+
     public function tables(){
-
-        $ignore = [
-            "Attribute",
-            "Permission",
-            "Role",
-            "Header",
-            "Cell",
-            "Coluna",
-            "Documento",
-            "File",
-            "Filter",
-            "Image",
-            "Description",
-            "Policy",
-            "PoliticaDeDesistencia",
-            "PoliticaDeInscricao",
-            "Relationship",
-            "Relatorio",
-            "Status",
-            "Pagina",
-            "Page",
-            "Detalhe"
-        ];
-        
-        $tables = $this->getModels();
-        // $tables = $this->schema->getTableNames();
-
-        $collection = new \Illuminate\Database\Eloquent\Collection;
-
-        foreach($tables as $table){
-            $label = \Str::afterLast($table, '\\');
-            if(!in_array($label, $ignore)){
-                $collection->put($table,$label );
-            }
+        if(config('report.local')){            
+            $ignore = array_merge(config('schema.ignore.models', []),[
+                "Attribute",
+                "Permission",
+                "Role",
+                "Header",
+                "Cell",
+                "Coluna",
+                "Documento",
+                "File",
+                "Filter",
+                "Image",
+                "Description",
+                "Policy",
+                "PoliticaDeDesistencia",
+                "PoliticaDeInscricao",
+                "Relationship",
+                "Relatorio",
+                "Status",
+                "Pagina",
+                "Page",
+                "Detalhe"
+            ]);
+            return \Tall\Schema\Schema::tables($ignore);
         }
-        return $collection; //or compact('collection'); //for combo select
+
+        return \Tall\Report\Services\Http\Schema::make()->get(['type'=>'tables']);        
     }
 
-    protected function getModels(): Collection
-    {
-        $models = collect(File::allFiles(app_path()))
-            ->map(function ($item) {
-                $path = $item->getRelativePathName();
-                $class = sprintf('\\%s%s', Container::getInstance()->getNamespace(), strtr(substr($path, 0, strrpos($path, '.')), '/', '\\'));
-    
-                return $class;
-            })
-            ->filter(function ($class) {
-                $valid = false;
-    
-                if (class_exists($class)) {
-                    $reflection = new \ReflectionClass($class);
-                    $valid = $reflection->isSubclassOf(Model::class) &&
-                        !$reflection->isAbstract();
-                }
-    
-                return $valid;
-            });
-        return $models->values();
-    }
-
-    
-    protected function getIgnoreTables(){
-
-        return [
-            "attributes",
-            "headers",
-            "cells",
-            "columns",
-            "descriptions",
-            "failed_jobs",
-            "lb_blocks",
-            "lb_contents",
-            "migrations",
-            "newsletters",
-            "orderings",
-            "pages",
-            "paginas",
-            "password_resets",
-            "permission_role",
-            "permission_user",
-            "permissions",
-            "personal_access_tokens",
-            "policies",
-            "politica_de_desistencias",
-            "politica_de_inscricaos",
-            "reports",
-            "role_user",
-            "roles",
-            "sessions",
-            "statuses",
-        ];
-    }
 }

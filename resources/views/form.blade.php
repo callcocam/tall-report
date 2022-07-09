@@ -15,10 +15,12 @@
             </x-native-select>
         </div>
         <div class="col-span-6 ">
+            <x-select label="Search a User" wire:model.defer="model" placeholder="Select some user" async-data="http://localhost:8000/api/reports?type=tables"
+                option-label="name" option-value="id" />
             <x-select multiselect label="{{ __('Modelo') }}" wire:model.defer="data.foreigns_table">
                 @if ($table_names)
                     @foreach ($table_names as $value => $table)
-                    <x-select.option label="{{ $table }}" value="{{ $value }}" />
+                        <x-select.option label="{{ $table }}" value="{{ $value }}" />
                     @endforeach
                 @endif
             </x-select>
@@ -38,7 +40,8 @@
         <div class="col-span-6 flex items-center">
             <div class="my-2 flex space-x-3 h-full w-full items-center">
                 <div>
-                    <x-radio lg id="left-label" left-label="{{ __('PUBLICADO') }}" wire:model.defer="data.status_id" />
+                    <x-radio lg id="left-label" left-label="{{ __('PUBLICADO') }}"
+                        wire:model.defer="data.status_id" />
                 </div>
                 <div>
                     <x-radio lg id="right-label" label="{{ __('RASCUNHO') }}" wire:model.defer="data.status_id" />

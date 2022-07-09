@@ -13,6 +13,8 @@ use Tall\Report\Models\Report;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Illuminate\Support\Facades\Http;
+
 use Tall\Report\Http\Livewire\FormComponent;
 
 class CreateComponent extends FormComponent

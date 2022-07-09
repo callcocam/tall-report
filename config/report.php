@@ -6,6 +6,11 @@
 */
 
 return [
+    "local"=>true,
+    "api"=>[
+        'url'=>env('REPORT_API_URL','http://localhost:8000/api'),
+        'token'=>env('REPORT_API_TOKEN', null),
+    ],
     "layout"=>"tall-report::layouts.app",
     "models"=>[
         "parent"=>\Tall\Report\Models\Report::class

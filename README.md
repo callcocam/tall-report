@@ -115,3 +115,41 @@ tailwind.config.js
     ],
   
 ```
+
+
+#PUBLICAR AS FACTORIES E SEEDERS
+
+```
+./vendor/bin/sail artisan vendor:publish --tag=acl-factories --force
+ or 
+sail artisan vendor:publish --tag=acl-factories --force
+
+EXAMPLE:
+
+if(class_exists(\Tall\Form\Models\Status::class)){
+    \Tall\Form\Models\Status::factory()->create([
+        'name'=>'Published'
+    ]);
+    \Tall\Form\Models\Status::factory()->create([
+        'name'=>'Draft'
+    ]);
+}
+if(class_exists(\Tall\Tenant\Models\Tenant::class)){
+    $host = \Str::replace("www.",'',request()->getHost());
+    \Tall\Tenant\Models\Tenant::factory()->create([
+        'name'=> 'Base',
+        'domain'=> $host,
+        'database'=>env("DB_DATABASE","landlord"),
+        'prefix'=>'landlord',
+        'middleware'=>'landlord',
+        'provider'=>'mysql',
+    ]);
+}
+\App\Models\User::query()->forceDelete();        
+\App\Models\User::factory(100)->create();
+$user =   \App\Models\User::factory()->create([
+    'name' => 'Test User',
+    'email' => 'test@example.com',
+]);
+  
+```
