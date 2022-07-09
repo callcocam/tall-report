@@ -22,13 +22,8 @@ return new class extends Migration
             $table->integer('freeze_row')->nullable();          
             $table->integer('zoom_scale')->nullable();          
             $table->integer('views')->nullable();
-            $table->text('content')->nullable();            
-            if (Schema::hasTable('statuses')) {           
-                $table->foreignUuid('status_id')->nullable()->constrained('statuses')->cascadeOnDelete();
-            }
-            else{
-                $table->enum('status_id',['draft','published'])->nullable()->comment("Situação")->default('published');
-            }
+            $table->text('content')->nullable();       
+            $table->string('status_id')->nullable()->comment("Situação")->default('published');
             if (Schema::hasTable('tenants')) {           
                 $table->foreignUuid('tenant_id')->nullable()->constrained('tenants')->cascadeOnDelete();
             }

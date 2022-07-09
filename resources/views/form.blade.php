@@ -43,11 +43,11 @@
         <div class="col-span-6 flex items-center">
             <div class="my-2 flex space-x-3 h-full w-full items-center">
                 <div>
-                    <x-radio lg id="left-label" left-label="{{ __('PUBLICADO') }}"
+                    <x-radio value="published" lg id="left-label" left-label="{{ __('PUBLICADO') }}"
                         wire:model.defer="data.status_id" />
                 </div>
                 <div>
-                    <x-radio lg id="right-label" label="{{ __('RASCUNHO') }}" wire:model.defer="data.status_id" />
+                    <x-radio value="draft" lg id="right-label" label="{{ __('RASCUNHO') }}" wire:model.defer="data.status_id" />
                 </div>
             </div>
         </div>
