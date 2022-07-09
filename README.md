@@ -102,3 +102,16 @@ mix
 ])
     
 ```
+
+
+#ALTER PRESSETS 
+
+tailwind.config.js
+```
+  presets:[
+         ...
+        require('./vendor/callcocam/tall-report/tailwind.config.js'),
+        ...
+    ],
+  
+```
