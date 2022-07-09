@@ -108,7 +108,7 @@ class ColumnsComponent extends FormComponent
             // foreach($foreignKeys as $foreignKey){
             foreach($foreignKeys as $name){
             // $name = $foreignKey->getForeignTableName();
-                if(!in_array($name, $this->getIgnoreTables())){
+                if(!in_array($name, config('schema.ignore.tables',[]))){
                     $data[$name] = \Schema::getColumnListing($name);
                 }
             }
