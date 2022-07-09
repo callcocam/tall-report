@@ -15,7 +15,7 @@
     @livewireStyles
     @wireUiScripts
     <!-- Scripts -->
-    <script src="{{ asset('js/report.js') }}" defer></script>
+    <script src="{{ mix('js/report.js') }}" defer></script>
    
 </head>
 

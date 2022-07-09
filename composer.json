@@ -10,6 +10,7 @@
         "livewire/livewire": "^2.5",
         "doctrine/dbal": "^3.3",
         "wireui/wireui": "^1.7",
+        "callcocam/tall-acl": "dev-main",
         "callcocam/tall-schema": "dev-main",
         "callcocam/tall-sluggable": "dev-main"
     },
