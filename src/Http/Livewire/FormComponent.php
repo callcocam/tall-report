@@ -120,8 +120,8 @@ abstract class FormComponent extends Component
        
     public function render(){      
         return view($this->view())
-        ->with('tables',$this->tables())
-        ->with('table_names',$this->tablesNames())
+       // ->with('tables',$this->tables())
+      //  ->with('table_names',$this->tablesNames())
         ->layout($this->layout());
     }
 }

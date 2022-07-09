@@ -5,25 +5,28 @@
                 placeholder="{{ __('Nome do relatório') }}" />
         </div>
         <div class="col-span-3 ">
-            <x-native-select label="{{ __('Modelo') }}" wire:model.defer="data.model">
+            <x-select label="{{ __('Modelos') }}" wire:model.defer="data.model"
+                placeholder="{{ __('Selecione o modelo') }}" :async-data="route(config('schema.routes.models'))" option-label="name" option-value="id" />
+            {{-- <x-native-select label="{{ __('Modelo') }}" wire:model.defer="data.model">
                 <option>=={{ __('Selecione') }}==</option>
                 @if ($tables)
                     @foreach ($tables as $value => $table)
                         <option value="{{ $value }}">{{ $table }}</option>
                     @endforeach
                 @endif
-            </x-native-select>
+            </x-native-select> --}}
         </div>
         <div class="col-span-6 ">
-            <x-select label="Search a User" wire:model.defer="model" placeholder="Select some user" async-data="http://localhost:8000/api/reports?type=tables"
-                option-label="name" option-value="id" />
-            <x-select multiselect label="{{ __('Modelo') }}" wire:model.defer="data.foreigns_table">
+            <x-select multiselect label="{{ __('Modelos') }}" wire:model.defer="data.foreigns_table"
+                placeholder="{{ __('Selecione tabelas relacionadas') }}" option-label="name" option-value="id"
+                :async-data="route(config('schema.routes.tables'))" />
+            {{-- <x-select multiselect label="{{ __('Modelo') }}" wire:model.defer="data.foreigns_table">
                 @if ($table_names)
                     @foreach ($table_names as $value => $table)
                         <x-select.option label="{{ $table }}" value="{{ $value }}" />
                     @endforeach
                 @endif
-            </x-select>
+            </x-select> --}}
         </div>
         <div class="col-span-2 ">
             <x-input wire:model="data.freeze_column" label="{{ __('Congelar Coluna') }}" placeholder="0"
