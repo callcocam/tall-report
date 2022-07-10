@@ -6,9 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/jetstream": "2.5",
-        "livewire/livewire": "2.5",
-        "wireui/wireui": "1.5",
+        "laravel/jetstream": "^2.5",
+        "livewire/livewire": "^2.5",
+        "wireui/wireui": "^1.5",
         "doctrine/dbal": "^3.3",
         "callcocam/tall-acl": "dev-main",
         "callcocam/tall-schema": "dev-main",
