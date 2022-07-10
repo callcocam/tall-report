@@ -6,7 +6,7 @@
         </div>
         <div class="col-span-3 ">
             <x-select label="{{ __('Modelos') }}" wire:model.defer="data.model"
-                placeholder="{{ __('Selecione o modelo') }}" :async-data="route(config('schema.routes.models'))" />
+                placeholder="{{ __('Selecione o modelo') }}" :async-data="route(config('schema.routes.models'))" option-label="name" option-value="id" />
             {{-- <x-native-select label="{{ __('Modelo') }}" wire:model.defer="data.model">
                 <option>=={{ __('Selecione') }}==</option>
                 @if ($tables)
@@ -18,7 +18,8 @@
         </div>
         <div class="col-span-6 ">
             <x-select multiselect label="{{ __('Modelos') }}" wire:model.defer="data.foreigns_table"
-                placeholder="{{ __('Selecione tabelas relacionadas') }}" :async-data="route(config('schema.routes.tables'))" />
+                placeholder="{{ __('Selecione tabelas relacionadas') }}" :async-data="route(config('schema.routes.tables'))" option-label="name"
+                option-value="id" />
             {{-- <x-select multiselect label="{{ __('Modelo') }}" wire:model.defer="data.foreigns_table">
                 @if ($table_names)
                     @foreach ($table_names as $value => $table)
@@ -46,7 +47,8 @@
                         wire:model.defer="data.status_id" />
                 </div>
                 <div>
-                    <x-radio value="draft" lg id="right-label" label="{{ __('RASCUNHO') }}" wire:model.defer="data.status_id" />
+                    <x-radio value="draft" lg id="right-label" label="{{ __('RASCUNHO') }}"
+                        wire:model.defer="data.status_id" />
                 </div>
             </div>
         </div>
