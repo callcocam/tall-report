@@ -201,43 +201,5 @@ trait Exportable
         }
        
     }
-    
-    public function tablesNames(){       
-        if(config('report.local')){
-            return \Tall\Schema\Schema::tablesNames(config('schema.ignore.tables', []));
-        }
-
-        return \Tall\Report\Services\Http\Schema::make()->get(['type'=>'tablesNames']);
-    }
-
-    public function tables(){
-        if(config('report.local')){            
-            $ignore = array_merge(config('schema.ignore.models', []),[
-                "Attribute",
-                "Permission",
-                "Role",
-                "Header",
-                "Cell",
-                "Coluna",
-                "Documento",
-                "File",
-                "Filter",
-                "Image",
-                "Description",
-                "Policy",
-                "PoliticaDeDesistencia",
-                "PoliticaDeInscricao",
-                "Relationship",
-                "Relatorio",
-                "Status",
-                "Pagina",
-                "Page",
-                "Detalhe"
-            ]);
-            return \Tall\Schema\Schema::tables($ignore);
-        }
-
-        return \Tall\Report\Services\Http\Schema::make()->get(['type'=>'tables']);        
-    }
 
 }

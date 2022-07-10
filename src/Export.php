@@ -53,24 +53,33 @@ class Export
         $header = collect([]);
         
         $data   = $data->transform(function ($row) use ($columns, $header) {
-            $item = collect([]);
-
-           
+            $item = collect([]);           
             collect($columns)->each(function ($column) use ($row, $header, $item) {
                 if($relationships = data_get($column, 'relationships')){                  
                     collect($relationships)->each(function ($relationship) use ($row, $header, $item, $column) {
                         $columnName = \Str::title(data_get($relationship,'header.label'));
                         $columnName = sprintf("%s %s",data_get($column, 'name'), $columnName);
                         $name = sprintf("%s.%s",data_get($column, 'name'), data_get($relationship, 'name'));
-                        $item->put($columnName , data_get($row,  $name));
+                        if(empty(data_get($row,  $name))){
+                            $item->put($columnName ,"-");
+                        }
+                        else{
+                            $item->put($columnName , data_get($row,  $name));
+                        }
+
                         if (!$header->contains($columnName )) {
                             $header->push($columnName);
                         }  
                     });    
                 }
                 else{  
-                   $columnName = \Str::title(data_get($column,'header.label'));                   
-                    $item->put($columnName , data_get($row,  data_get($column,'name')));
+                   $columnName = \Str::title(data_get($column,'header.label')); 
+                    if(empty(data_get($row,  data_get($column,'name')))){
+                        $item->put($columnName ,"-");
+                    }
+                    else{
+                        $item->put($columnName , data_get($row,  data_get($column,'name')));
+                    }
                     if (!$header->contains($columnName )) {
                         $header->push($columnName);
                     }

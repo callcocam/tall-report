@@ -41,7 +41,7 @@ class EditComponent extends FormComponent
             $this->authorize(Route::currentRouteName());
         }     
         
-        $this->setFormProperties($model); // $relatorio from hereon, called $this->model
+        $this->setFormProperties($model); 
     }
     
     
