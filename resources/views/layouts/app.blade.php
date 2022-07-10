@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/report.css') }}" />
     @livewireStyles
-    @wireUiScripts
+    <wireui:scripts />
     <!-- Scripts -->
     <script src="{{ mix('js/report.js') }}" defer></script>
    
