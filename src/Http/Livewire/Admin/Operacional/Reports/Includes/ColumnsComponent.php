@@ -52,7 +52,7 @@ class ColumnsComponent extends FormComponent
         }
     }
    
-      /*
+    /*
     |--------------------------------------------------------------------------
     |  Features order
     |--------------------------------------------------------------------------
@@ -63,6 +63,18 @@ class ColumnsComponent extends FormComponent
         $this->cardModal = true;            
      }
 
+     
+    /*
+    |--------------------------------------------------------------------------
+    |  Features order
+    |--------------------------------------------------------------------------
+    | Order visivel no me menu
+    |
+    */
+    public function closeModal(){
+        if($this->updated)
+            return redirect()->route(config('report.routes.reports.generate'), $this->model);         
+     }
       /*
     |--------------------------------------------------------------------------
     |  Features columns
@@ -138,17 +150,6 @@ class ColumnsComponent extends FormComponent
         }
       }
 
-      /*
-    |--------------------------------------------------------------------------
-    |  Features order
-    |--------------------------------------------------------------------------
-    | Order visivel no me menu
-    |
-    */
-    public function closeModal(){
-        if($this->updated)
-            return redirect()->route(config('report.routes.reports.generate'), $this->model);         
-     }
 
     public function view()
     {

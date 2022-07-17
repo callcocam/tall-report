@@ -2,13 +2,6 @@
 
 Pacote para gerar elatórios dinamicamente
 
-#INSTALL Starter Kits 
-
-```
-./vendor/bin/sail artisan jetstream:install livewire
-
-```
-
 #ALTERAR A TABLE SESSIONS
 
 ```

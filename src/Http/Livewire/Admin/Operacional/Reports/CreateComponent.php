@@ -52,9 +52,45 @@ class CreateComponent extends FormComponent
         data_set($this->data, 'foreigns_table', []);
     }
    
+    
+    public function getModelsProperty()
+    {
+        
+        $ignore = [
+            "Attribute",
+            "Permission",
+            "Role",
+            "Header",
+            "Cell",
+            "Coluna",
+            "Documento",
+            "File",
+            "Filter",
+            "Image",
+            "Description",
+            "Policy",
+            "PoliticaDeDesistencia",
+            "PoliticaDeInscricao",
+            "Relationship",
+            "Relatorio",
+            "Status",
+            "Pagina",
+            "Page",
+            "Detalhe"
+        ];
+        $collections = \Tall\Schema\Schema::models(array_merge($ignore, config('schema.ignore.models',[])));
+        return $collections;
+    }
+
+    public function getTablesProperty()
+    {
+        $collections = \Tall\Schema\Schema::tables(config('schema.ignore.tables',[]));
+        return $collections;
+
+    }
+    
     protected function view()
     {
-
         return 'tall-report::create-component';
     }
 }

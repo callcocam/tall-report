@@ -5,28 +5,29 @@
                 placeholder="{{ __('Nome do relatório') }}" />
         </div>
         <div class="col-span-3 ">
-            <x-select label="{{ __('Modelos') }}" wire:model.defer="data.model"
-                placeholder="{{ __('Selecione o modelo') }}" :async-data="route(config('schema.routes.models'))" option-label="name" option-value="id" />
-            {{-- <x-native-select label="{{ __('Modelo') }}" wire:model.defer="data.model">
+            {{-- <x-select label="{{ __('Modelos') }}" wire:model.defer="data.model"
+                placeholder="{{ __('Selecione o modelo') }}" :async-data="route(config('schema.routes.models'))"
+                 option-label="name" option-value="id" /> --}}
+            <x-native-select label="{{ __('Modelo') }}" wire:model.defer="data.model">
                 <option>=={{ __('Selecione') }}==</option>
-                @if ($tables)
-                    @foreach ($tables as $value => $table)
-                        <option value="{{ $value }}">{{ $table }}</option>
+                @if ($models = $this->models)
+                    @foreach ($models as $value => $table)
+                    <option  value="{{ $table['id'] }}" >{{ $table['name'] }}</option>
                     @endforeach
                 @endif
-            </x-native-select> --}}
+            </x-native-select>
         </div>
         <div class="col-span-6 ">
-            <x-select multiselect label="{{ __('Modelos') }}" wire:model.defer="data.foreigns_table"
+            {{-- <x-select multiselect label="{{ __('Modelos') }}" wire:model.defer="data.foreigns_table"
                 placeholder="{{ __('Selecione tabelas relacionadas') }}" :async-data="route(config('schema.routes.tables'))" option-label="name"
-                option-value="id" />
-            {{-- <x-select multiselect label="{{ __('Modelo') }}" wire:model.defer="data.foreigns_table">
-                @if ($table_names)
-                    @foreach ($table_names as $value => $table)
-                        <x-select.option label="{{ $table }}" value="{{ $value }}" />
+                option-value="id" /> --}}
+            <x-select multiselect label="{{ __('Modelo') }}" wire:model.defer="data.foreigns_table">
+                @if ($tables = $this->tables )
+                    @foreach ($tables as $value => $table)
+                        <x-select.option label="{{ $table['id'] }}" value="{{ $table['name'] }}" />
                     @endforeach
                 @endif
-            </x-select> --}}
+            </x-select>
         </div>
         <div class="col-span-2 ">
             <x-input wire:model="data.freeze_column" label="{{ __('Congelar Coluna') }}" placeholder="0"

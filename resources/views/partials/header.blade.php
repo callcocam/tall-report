@@ -1,6 +1,5 @@
 <div class="lg:flex  lg:justify-between flex-col space-y-1">
     <div class="flex-1 min-w-0">
-
         <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
             <div class="mt-2 flex items-center text-sm text-gray-500">
                 <!-- Heroicon name: solid/briefcase -->
