@@ -40,6 +40,7 @@ class ReportServiceProvider extends ServiceProvider
                 
         $this->publishConfig();
         $this->publishMigrations();
+        $this->publishAssets();
         $this->loadMigrations();
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tall-report');
@@ -58,6 +59,22 @@ class ReportServiceProvider extends ServiceProvider
         Livewire::component( 'tall-report::includes.ordering-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\OrderingComponent::class);
 
         $this->app->register(RouteServiceProvider::class);
+    }
+    
+    /**
+     * Publish the config file.
+     *
+     * @return void
+     */
+    protected function publishAssets()
+    {
+    
+        $this->publishes([
+            __DIR__.'/../public/js/menu.js' => public_path('js/menu.js'),
+            __DIR__.'/../public/js/report.js' => public_path('js/report.js'),
+            __DIR__.'/../public/css/menu.css' => public_path('css/menu.css'),
+            __DIR__.'/../public/css/report.css' => public_path('css/report.css'),
+        ], 'tall-assets');
     }
     
     /**
