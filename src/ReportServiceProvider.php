@@ -70,10 +70,8 @@ class ReportServiceProvider extends ServiceProvider
     {
     
         $this->publishes([
-            __DIR__.'/../public/js/menu.js' => public_path('js/menu.js'),
             __DIR__.'/../public/js/report.js' => public_path('js/report.js'),
-            __DIR__.'/../public/css/menu.css' => public_path('css/menu.css'),
-            __DIR__.'/../public/css/report.css' => public_path('css/report.css'),
+            __DIR__.'/../public/report.css' => public_path('css/report.css'),
         ], 'tall-assets');
     }
     
