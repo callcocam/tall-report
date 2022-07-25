@@ -44,47 +44,36 @@ class CreateComponent extends FormComponent
         $this->setFormProperties($model); // $relatorio from hereon, called $this->model        
         data_set($this->data, 'name', '');
         data_set($this->data, 'model', '');
-        data_set($this->data, 'freeze_column', '');
-        data_set($this->data, 'freeze_row', '');
-        data_set($this->data, 'zoom_scale', '');
-        data_set($this->data, 'views', '');
+        data_set($this->data, 'freeze_column', 0);
+        data_set($this->data, 'freeze_row', 0);
+        data_set($this->data, 'zoom_scale', 0);
+        data_set($this->data, 'views', 0);
         data_set($this->data, 'content', '');
+        data_set($this->data, 'status_id', 'published');
         data_set($this->data, 'foreigns_table', []);
     }
    
     
     public function getModelsProperty()
     {
-        
-        $ignore = [
-            "Attribute",
-            "Permission",
-            "Role",
-            "Header",
-            "Cell",
-            "Coluna",
-            "Documento",
-            "File",
-            "Filter",
-            "Image",
-            "Description",
-            "Policy",
-            "PoliticaDeDesistencia",
-            "PoliticaDeInscricao",
-            "Relationship",
-            "Relatorio",
-            "Status",
-            "Pagina",
-            "Page",
-            "Detalhe"
-        ];
-        $collections = \Tall\Schema\Schema::models(array_merge($ignore, config('schema.ignore.models',[])));
+        if(  $collections = config('schema.models',null) ){            
+           return $collections;
+        }
+        else{
+            $collections = \Tall\Schema\Schema::models(config('schema.ignore.models',[]));
+        }
+      
         return $collections;
     }
 
     public function getTablesProperty()
     {
-        $collections = \Tall\Schema\Schema::tables(config('schema.ignore.tables',[]));
+        if(  $collections = config('schema.tables',null) ){            
+            return $collections;
+         }
+         else{
+             $collections = \Tall\Schema\Schema::models(config('schema.ignore.tables',[]));
+         }
         return $collections;
 
     }

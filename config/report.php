@@ -6,7 +6,10 @@
 */
 
 return [
-    "local"=>true,
+    "local"=>true,    
+    'zoom_scale'=>false,
+    'freeze_row'=>false,
+    'freeze_column'=>false,
     "api"=>[
         'url'=>env('REPORT_API_URL','http://localhost:8000/api'),
         'token'=>env('REPORT_API_TOKEN', null),
