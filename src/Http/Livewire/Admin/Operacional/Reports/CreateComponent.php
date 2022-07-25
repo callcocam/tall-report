@@ -72,7 +72,7 @@ class CreateComponent extends FormComponent
             return $collections;
          }
          else{
-             $collections = \Tall\Schema\Schema::models(config('schema.ignore.tables',[]));
+            $collections = \Tall\Schema\Schema::tables(config('schema.ignore.tables',[]));
          }
         return $collections;
 
