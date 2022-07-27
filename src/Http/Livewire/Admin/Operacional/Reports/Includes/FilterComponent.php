@@ -146,6 +146,6 @@ class FilterComponent extends FormComponent
 
     public function view()
     {
-        return 'tall-report::includes.filter-component';
+        return 'report::includes.filter-component';
     }
 }

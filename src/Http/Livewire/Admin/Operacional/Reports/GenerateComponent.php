@@ -120,6 +120,6 @@ class GenerateComponent extends FormComponent
     protected function view()
     {
 
-        return 'tall-report::generate-component';
+        return 'report::generate-component';
     }
 }

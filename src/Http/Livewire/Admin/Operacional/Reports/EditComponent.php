@@ -72,7 +72,7 @@ class EditComponent extends FormComponent
     protected function view()
     {
 
-        return 'tall-report::edit-component';
+        return 'report::edit-component';
     }
     
 }

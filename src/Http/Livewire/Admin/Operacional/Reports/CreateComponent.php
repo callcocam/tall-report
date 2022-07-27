@@ -80,6 +80,6 @@ class CreateComponent extends FormComponent
     
     protected function view()
     {
-        return 'tall-report::create-component';
+        return 'report::create-component';
     }
 }

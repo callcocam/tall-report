@@ -8,7 +8,7 @@
                     @if ($columns = array_filter($this->columns))
                         <ul role="list" class="font-medium text-gray-900 px-2 py-3">
                             @foreach ($columns as $column)
-                                @include('tall-report::partials.selecteds')
+                                @include('report::partials.selecteds')
                             @endforeach
                         </ul>
                         @if ($parents = data_get($columns, 'parent'))
@@ -16,13 +16,13 @@
                                 <div x-data="{ item: false }" class="border-t border-gray-200 px-4 py-6">
                                     <h3 class="-mx-2 -my-3 flow-root">
                                         <!-- Expand/collapse section button -->
-                                        @include('tall-report::partials.collapse')
+                                        @include('report::partials.collapse')
                                     </h3>
                                     <!-- Filter section, show/hide based on section state. -->
                                     <div class="pt-6" id="filter-section-mobile-0" x-show="item">
                                         <div class="space-y-2">
                                             @foreach ($parent as $item)
-                                                @include('tall-report::partials.selecteds-mobile-item')
+                                                @include('report::partials.selecteds-mobile-item')
                                             @endforeach
                                         </div>
                                     </div>

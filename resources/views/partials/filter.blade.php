@@ -4,7 +4,7 @@
     <span class="font-medium text-gray-900">
         {{ __(\Str::title($name)) }} </span>
     <span class="ml-6 flex items-center">
-        @include('tall-report::partials.plus')
-        @include('tall-report::partials.minus')
+        @include('report::partials.plus')
+        @include('report::partials.minus')
     </span>
 </button>

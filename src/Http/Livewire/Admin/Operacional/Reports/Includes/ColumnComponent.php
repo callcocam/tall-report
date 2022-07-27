@@ -64,6 +64,6 @@ class ColumnComponent extends FormComponent
     
     public function view()
     {
-        return 'tall-report::includes.column-component';
+        return 'report::includes.column-component';
     }
 }

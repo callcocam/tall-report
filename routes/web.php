@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/relatorios', function () {
-    return view('tall-report::welcome');
+    return view('report::welcome');
 });
 
 Route::middleware([

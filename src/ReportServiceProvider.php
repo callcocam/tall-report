@@ -43,20 +43,20 @@ class ReportServiceProvider extends ServiceProvider
         $this->publishAssets();
         $this->loadMigrations();
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tall-report');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'report');
 
-        Livewire::component( 'tall-report::list-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\ListComponent::class);
-        Livewire::component( 'tall-report::create-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\CreateComponent::class);
-        Livewire::component( 'tall-report::edit-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\EditComponent::class);
-        Livewire::component( 'tall-report::generate-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\GenerateComponent::class);
+        Livewire::component( 'report::list-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\ListComponent::class);
+        Livewire::component( 'report::create-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\CreateComponent::class);
+        Livewire::component( 'report::edit-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\EditComponent::class);
+        Livewire::component( 'report::generate-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\GenerateComponent::class);
         
-        Livewire::component( 'tall-report::includes.cell-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\CellComponent::class);
-        Livewire::component( 'tall-report::includes.column-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\ColumnComponent::class);
-        Livewire::component( 'tall-report::includes.columns-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\ColumnsComponent::class);
-        Livewire::component( 'tall-report::includes.filter-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\FilterComponent::class);
-        Livewire::component( 'tall-report::includes.filters-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\FiltersComponent::class);
-        Livewire::component( 'tall-report::includes.header-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\HeaderComponent::class);
-        Livewire::component( 'tall-report::includes.ordering-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\OrderingComponent::class);
+        Livewire::component( 'report::includes.cell-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\CellComponent::class);
+        Livewire::component( 'report::includes.column-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\ColumnComponent::class);
+        Livewire::component( 'report::includes.columns-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\ColumnsComponent::class);
+        Livewire::component( 'report::includes.filter-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\FilterComponent::class);
+        Livewire::component( 'report::includes.filters-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\FiltersComponent::class);
+        Livewire::component( 'report::includes.header-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\HeaderComponent::class);
+        Livewire::component( 'report::includes.ordering-component', \Tall\Report\Http\Livewire\Admin\Operacional\Reports\Includes\OrderingComponent::class);
 
         $this->app->register(RouteServiceProvider::class);
     }

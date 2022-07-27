@@ -76,6 +76,6 @@ class CellComponent extends FormComponent
 
     public function view()
     {
-        return 'tall-report::includes.cell-component';
+        return 'report::includes.cell-component';
     }
 }

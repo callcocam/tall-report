@@ -4,13 +4,13 @@
             <div class="w-full py-2">
                 <x-slot name="header">
                     <!-- Section Hero -->
-                    @include('tall-report::header', ['label' => 'Gerenciar'])
+                    @include('report::header', ['label' => 'Gerenciar'])
                 </x-slot>
             </div>
             <div class="flex flex-col">
                 <div class="mt-5 md:mt-0">
                     <div class="block border-4 border-dashed border-gray-200  p-2 rounded-lg h-96  lg:h-full z-20">
-                        @include('tall-report::partials.header')
+                        @include('report::partials.header')
                         @if ($selecteds = array_filter($checkboxValues))
                             @if ($models = $this->models)
                                 <div class="flex flex-col">
@@ -19,7 +19,7 @@
                                             <div class="overflow-hidden">
                                                 @if (array_filter($selecteds))
                                                     <table class="w-full text-left lg:max-h-[500px]">
-                                                        @include('tall-report::partials.table.thead')
+                                                        @include('report::partials.table.thead')
                                                         <tbody class="w-full overflow-y-scroll">
                                                             @foreach ($models as $model)
                                                                 <tr class="bg-white border-b w-full">

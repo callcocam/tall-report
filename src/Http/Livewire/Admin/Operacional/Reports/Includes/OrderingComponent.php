@@ -114,6 +114,6 @@ class OrderingComponent extends FormComponent
 
     public function view()
     {
-        return 'tall-report::includes.ordering-component';
+        return 'report::includes.ordering-component';
     }
 }

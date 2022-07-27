@@ -14,7 +14,7 @@ return [
         'url'=>env('REPORT_API_URL','http://localhost:8000/api'),
         'token'=>env('REPORT_API_TOKEN', null),
     ],
-    "layout"=>"tall-report::layouts.app",
+    "layout"=>"report::layouts.app",
     "models"=>[
         "parent"=>\Tall\Report\Models\Report::class
     ], 

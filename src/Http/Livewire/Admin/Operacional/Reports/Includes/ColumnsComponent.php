@@ -153,6 +153,6 @@ class ColumnsComponent extends FormComponent
 
     public function view()
     {
-        return 'tall-report::includes.columns-component';
+        return 'report::includes.columns-component';
     }
 }

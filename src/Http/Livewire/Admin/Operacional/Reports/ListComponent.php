@@ -38,6 +38,6 @@ class ListComponent extends TableComponent
     protected function view()
     {
 
-        return 'tall-report::list-component';
+        return 'report::list-component';
     }
 }

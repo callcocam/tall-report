@@ -84,12 +84,12 @@ import 'livewire-sortable';//add import slivewire-sortable resourses/js/app.js
 
 mix
 .js('resources/js/app.js', 'public/js')
-.js('vendor/callcocam/tall-report/resources/js/report.js', 'public/js')
+.js('vendor/callcocam/report/resources/js/report.js', 'public/js')
 .postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
 ])
-.postCss('vendor/callcocam/tall-report/resources/css/report.css', 'public/css', [
+.postCss('vendor/callcocam/report/resources/css/report.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
 ])
@@ -103,7 +103,7 @@ tailwind.config.js
 ```
   presets:[
          ...
-        require('./vendor/callcocam/tall-report/tailwind.config.js'),
+        require('./vendor/callcocam/report/tailwind.config.js'),
         ...
     ],
   

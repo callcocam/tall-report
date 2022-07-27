@@ -23,7 +23,7 @@
     <x-dialog z-index="z-50" blur="md" align="center" />
     <x-notifications z-index="z-50" />
     <div class="min-h-screen bg-gray-100">
-        @include('tall-report::navigation-menu')
+        @include('report::navigation-menu')
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white shadow">

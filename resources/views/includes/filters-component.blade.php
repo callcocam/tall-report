@@ -29,9 +29,9 @@
                                                         @if (!\Str::contains($column, 'able_id'))
                                                             @if ($name = $tableName)
                                                                 @if ($options = data_get($this->localColumns, $column))
-                                                                    @livewire('tall-report::includes.filter-component', compact('model', 'column', 'name', 'options'), key($column))
+                                                                    @livewire('report::includes.filter-component', compact('model', 'column', 'name', 'options'), key($column))
                                                                 @else
-                                                                    @livewire('tall-report::includes.filter-component', compact('model', 'column', 'name'), key($column))
+                                                                    @livewire('report::includes.filter-component', compact('model', 'column', 'name'), key($column))
                                                                 @endif
                                                             @endif
                                                         @endif
@@ -57,8 +57,8 @@
                                                         </svg> <span class="text-xl font-bold uppercase">
                                                             {{ __(\Str::title($name)) }} </span>
                                                         <span class="ml-6 flex items-center">
-                                                            @include('tall-report::partials.plus')
-                                                            @include('tall-report::partials.minus')
+                                                            @include('report::partials.plus')
+                                                            @include('report::partials.minus')
                                                         </span>
                                                     </button>
                                                 </h3>
@@ -73,9 +73,9 @@
                                                                             {{-- @if (!\Str::contains($item, '_id')) --}}
                                                                             @if ($column = $item)
                                                                                 @if ($options = data_get($this->localColumns, $column))
-                                                                                    @livewire('tall-report::includes.filter-component', compact('model', 'column', 'name', 'options'), key(sprintf('%s.%s', $name, $column)))
+                                                                                    @livewire('report::includes.filter-component', compact('model', 'column', 'name', 'options'), key(sprintf('%s.%s', $name, $column)))
                                                                                 @else
-                                                                                    @livewire('tall-report::includes.filter-component', compact('model', 'column', 'name'), key(sprintf('%s.%s', $name, $column)))
+                                                                                    @livewire('report::includes.filter-component', compact('model', 'column', 'name'), key(sprintf('%s.%s', $name, $column)))
                                                                                 @endif
                                                                             @endif
                                                                             {{-- @endif --}}

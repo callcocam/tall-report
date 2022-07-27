@@ -81,6 +81,6 @@ class HeaderComponent extends FormComponent
 
     public function view()
     {
-        return 'tall-report::includes.header-component';
+        return 'report::includes.header-component';
     }
 }
