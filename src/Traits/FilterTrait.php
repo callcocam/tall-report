@@ -15,13 +15,19 @@ trait FilterTrait
     /**
      * @param string|array $value
      */
-    public function filterInputText(Builder &$query, string $field, $operator, $value): void
+    public function filterInputText(Builder &$query, $filter): void
     { 
    
+        $multiple = $filter->multiple;
+        $field = $filter->field;
+        $operator = $filter->operator; 
+        $value = $filter->value;
         switch ($operator) {
             case 'is':
-                $query->where($field, '=', $value);
-
+                if($multiple)
+                    $query->whereIn($field, json_decode($value, true));
+                else
+                    $query->where($field, '=', $value);
                 break;
             case 'is_not':
                 $query->where($field, '!=', $value);

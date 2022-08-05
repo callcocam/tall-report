@@ -54,7 +54,11 @@ class FilterComponent extends FormComponent
        if($filter = $model->filters->filter(function($item)use($column, $name){
         return $item->column == $column && $item->name == $name;
      } )->first()){
+       
         $this->data['filter'] = $filter;
+        if(data_get($filter, 'multiple')){
+            data_set($this->data, 'filter.value',json_decode(data_get($filter, 'value'), true));
+        }
      }     
     } 
      /*
@@ -83,10 +87,18 @@ class FilterComponent extends FormComponent
         if(empty(data_get($this->data, 'filter.operador'))){
             $this->addError('operador', 'Campo obrigatório');
         }
+        
+        if(is_array(data_get($this->data, 'filter.multiple'))){
+            $value = json_encode(data_get($this->data, 'filter.value'));
+        }
+        else{
+            $value = data_get($this->data, 'filter.value');
+        }
         $this->model->filters()->where('id',data_get($this->data, 'filter.id'))->update([
             'operador'=>data_get($this->data, 'filter.operador'),
             'type'=>data_get($this->data, 'filter.type'),
             'value'=>data_get($this->data, 'filter.value'),
+            'multiple'=>data_get($this->data, 'filter.multiple'),
             'nulo'=>data_get($this->data, 'filter.nulo', false),
         ]);
 
@@ -104,10 +116,18 @@ class FilterComponent extends FormComponent
         if(empty(data_get($this->data, 'filter.operador'))){
             $this->addError('operador', 'Campo obrigatório');
         }
+
+        if(is_array(data_get($this->data, 'filter.multiple'))){
+            $value = json_encode(data_get($this->data, 'filter.value'));
+        }
+        else{
+            $value = data_get($this->data, 'filter.value');
+        }
         $this->model->filters()->create([
             'name'=>$this->name,
             'column'=>$this->column,
             'operador'=>data_get($this->data, 'filter.operador'),
+            'multiple'=>$value,
             'value'=>data_get($this->data, 'filter.value'),
             'nulo'=>data_get($this->data, 'filter.nulo', false),
          ]);

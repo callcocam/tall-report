@@ -7,7 +7,7 @@
                         <span class="flex-1"> {{ __(\Str::title($items)) }}</span>
                         <div class="flex space-x-2 items-center w-20 justify-end">
                             @if ($column = $items)
-                                @livewire('report::includes.column-component', compact('column', 'name', 'model'), key(sprintf('column-%s', $items)))
+                                {{-- @livewire('report::includes.column-component', compact('column', 'name', 'model'), key(sprintf('column-%s', $items))) --}}
                             @endif
                             <button type="button" wire:click="removeColumn('{{$column}}')">
                                 <x-icon name="trash" class="w-5 h-5 mb-1" style="solid" />
@@ -27,7 +27,7 @@
                                         {{ __(\Str::title($item)) }}
                                     </span>
                                     <div class="flex space-x-2 items-center  w-20 justify-end">
-                                        @livewire('report::includes.column-component', compact('column', 'name', 'model'), key(sprintf('column-item-%s', $item)))
+                                        {{-- @livewire('report::includes.column-component', compact('column', 'name', 'model'), key(sprintf('column-item-%s', $item))) --}}
                                         <button type="button" wire:click="removeColumn('{{$name}}','{{$column}}')">
                                             <x-icon name="trash" class="w-5 h-5 mb-1" style="solid" />
                                         </button>

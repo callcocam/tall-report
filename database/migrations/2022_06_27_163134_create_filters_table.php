@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('column',255)->nullable();
             $table->string('operador',255)->nullable();
             $table->string('type',255)->nullable();
-            $table->string('value',255)->nullable();
+            $table->text('value')->nullable();
             $table->boolean('nulo')->nullable();
             $table->integer('ordering')->nullable();
             $table->foreignUuid('report_id')->nullable()->constrained('reports')->cascadeOnDelete();

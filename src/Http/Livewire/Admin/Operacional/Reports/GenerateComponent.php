@@ -92,14 +92,14 @@ class GenerateComponent extends FormComponent
                         // dd($filters);
                         foreach ($filters as $key => $filter) {
                             if($filter->name == $currentTable){
-                                $this->filterInputText($builder, $filter->column, $filter->operador, $filter->value);
+                                $this->filterInputText($builder, $filter);
                                 if($filter->nulo){
                                     $builder->orWhereNull($filter->column);
                                 }
                             }
                             else{
                                 $builder->whereHas($filter->name, function (Builder $query) use ($filter) {
-                                    $this->filterInputText($query, $filter->column, $filter->operador, $filter->value);
+                                    $this->filterInputText($query, $filter);
                                 });
                             }
                             
