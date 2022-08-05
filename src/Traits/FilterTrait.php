@@ -19,8 +19,8 @@ trait FilterTrait
     { 
    
         $multiple = $filter->multiple;
-        $field = $filter->field;
-        $operator = $filter->operator; 
+        $field = $filter->column;
+        $operator = $filter->operador; 
         $value = $filter->value;
         switch ($operator) {
             case 'is':
@@ -29,9 +29,11 @@ trait FilterTrait
                 else
                     $query->where($field, '=', $value);
                 break;
-            case 'is_not':
-                $query->where($field, '!=', $value);
-
+            case 'is_not':               
+                if($multiple)
+                    $query->whereNotIn($field, json_decode($value, true));
+                else
+                    $query->where($field, '!=', $value);
                 break;
             case 'starts_with':
                 $query->where($field, 'LIKE', $value . '%');
@@ -47,7 +49,6 @@ trait FilterTrait
                 break;
             case 'contains_not':
                 $query->where($field, 'NOT ' . 'LIKE', '%' . $value . '%');
-
                 break;
             case 'is_empty':
                 $query->where($field, '=', '')->orWhereNull($field);
